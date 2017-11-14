@@ -1,0 +1,30 @@
+<!-- <% content_for(:title, @subject.title) %>
+<h1><%= @subject.title %></h1>
+
+<% if @lessons.any? %>
+  <h4>Here are your Lessons:</h4>
+
+  <ul>
+    <% @lessons.each do |lesson| %>
+      <li>
+        <%= link_to lesson.title, subject_lesson_path(lesson)%>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no lesson yet!</p>
+<% end %> -->
+
+<% if @subject.lessons.any? %>
+  <h4>Here are your Lessons:</h4>
+
+  <ul>
+    <% @subject.lessons.each do |lesson| %>
+      <li>
+        (<%= lesson.day %>) <%= link_to lesson.title, subject_lesson_path(lesson)%>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no lesson yet!</p>
+<% end %>

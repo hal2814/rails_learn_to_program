@@ -4,10 +4,14 @@ class SubjectsController < ApplicationController
     @subject = @course.subjects.new
   end
 
-  def list
-    @course = Course.find(params[:course_id])
-    @subjects = Subject.all
-    render :show
+  def index
+    @course = Course.find(params[:id])
+    @subjects = @course.subjects
+  end
+
+  def show
+    @subject = Subject.find(params[:id])
+    @lessons = @subject.lessons
   end
 
   def create
@@ -22,12 +26,12 @@ class SubjectsController < ApplicationController
 
   def edit
     @course = Course.find(params[:course_id])
-    @subject = Sighting.find(params[:id])
+    @subject = Subject.find(params[:id])
     render :edit
   end
 
   def update
-    @subject = Sighting.find(params[:id])
+    @subject = Subject.find(params[:id])
     @course = @subject.course
     if @subject.update(subject_params)
       redirect_to course_path(@course)
@@ -38,7 +42,7 @@ class SubjectsController < ApplicationController
 
   def destroy
     @course = Course.find(params[:course_id])
-    @subject = Sighting.find(params[:id])
+    @subject = Subject.find(params[:id])
     @subject.destroy
     redirect_to course_path(@course)
   end

@@ -1,16 +1,16 @@
 <% content_for(:title, @course.title) %>
 <h1><%= @course.title %></h1>
 
-<% if @courses.any? %>
-  <h4>Here are your Courses:</h4>
+<% if @course.subjects.any? %>
+  <h4>Here are your Subjects:</h4>
 
   <ul>
-    <% @courses.each do |course| %>
+    <% @course.subjects.each do |subject| %>
       <li>
-        <%= course.title %>
+        <%= link_to subject.title, subject_path(subject)%>
       </li>
     <% end %>
   </ul>
 <% else %>
-  <p>There are no courses yet!</p>
+  <p>There are no subjects yet!</p>
 <% end %>
