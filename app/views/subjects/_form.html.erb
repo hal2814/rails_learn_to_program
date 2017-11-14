@@ -1,0 +1,9 @@
+<%= render "layouts/errors", :object => @subject %>
+
+<%= form_for @subject do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :week %>
+  <%= f.text_field :week %>
+  <%= f.submit %>
+<% end %>

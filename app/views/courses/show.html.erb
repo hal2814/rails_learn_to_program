@@ -1,0 +1,16 @@
+<% content_for(:title, @course.title) %>
+<h1><%= @course.title %></h1>
+
+<% if @courses.any? %>
+  <h4>Here are your Courses:</h4>
+
+  <ul>
+    <% @courses.each do |course| %>
+      <li>
+        <%= course.title %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no courses yet!</p>
+<% end %>
