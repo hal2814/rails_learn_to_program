@@ -14,3 +14,9 @@
 <% else %>
   <p>There are no subjects yet!</p>
 <% end %>
+
+<%= render "form" %>
+
+<%= link_to "Delete", course_path(@course),
+                                 :data => {:confirm => "Are you sure?",
+                                                :method => "delete"} %>
